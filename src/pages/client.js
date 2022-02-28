@@ -29,11 +29,11 @@ export default function Client(props) {
   // console.log(step);
   return (
     <div className="page">
-      <div className="dashboard-container">
+      <div style={{ width: '100%' }}>
         <div>
           <Header />
         </div>
-        <div style={{ width: "800px", marginLeft: "250px" }}>
+        <div style={{ maxwidth: "800px", padding: 50 }}>
           <HorizontalNonLinearStepper currentstep={setActive} />
         </div>
         {/* <p>{console.log(step)}</p> */}
@@ -42,9 +42,8 @@ export default function Client(props) {
             borderWidth: "1px",
             borderStyle: "solid",
             borderColor: "rgb(90, 160, 240)",
-            marginBottom: "20px",
             width: "fit-content",
-            marginLeft: "350px",
+            margin: 'auto'
           }}
          
         >

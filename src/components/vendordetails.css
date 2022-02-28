@@ -2,14 +2,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 }
 .input {
   padding: 20px;
   margin: 20px;
   width: 400px;
-  border-color: rgb(90, 160, 240);
-  border-width:1px;
+  /* border-width:1px; */
 }
 .label {
   padding-right: 400px;
