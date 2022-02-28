@@ -5,7 +5,7 @@ const clientSlice = createSlice({
   initialState: {
     clientdetails: [{ cname: "", caddress: "", cphone: "" }],
     weddingdetails: [
-      { wdate: "", venue: "", reception: "", muhurta: "", mehendi: "" },
+      { venue: "", reception: "", muhurta: "", mehendi: "" },
     ],
     fooddetails: [
       {
@@ -49,7 +49,6 @@ const clientSlice = createSlice({
 
     weddingDetail(state, action) {
       state.weddingdetails = {
-        wdate: action.payload.wdate,
         venue: action.payload.venue,
         reception: action.payload.reception,
         muhurta: action.payload.muhurta,

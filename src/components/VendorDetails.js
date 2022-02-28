@@ -4,6 +4,8 @@ import "./vendordetails.css";
 import { useState } from "react";
 import { vendorActions } from "../store/vendor";
 import TextField from "@mui/material/TextField";
+import TextareaAutosize from "@mui/material/TextareaAutosize";
+import Alert from "./alert";
 
 import { vendorSchema } from "../validations/vendor";
 
@@ -12,9 +14,10 @@ export default function VendorDetails() {
   const [address, setAddress] = useState("");
   const [number, setNumber] = useState("");
   const [email, setEmail] = useState("");
-
+  const [update, setUpdate] = useState(false);
   const dispatch = useDispatch();
 
+  const [isValid, setisValid] = useState(true); //Validation Modal
   const vendorUpdate = async (event) => {
     event.preventDefault();
     let formData = {
@@ -23,8 +26,11 @@ export default function VendorDetails() {
       number,
       email,
     };
-    const isValid = await vendorSchema.isValid(formData);
-    console.log(isValid);
+    setisValid(true);
+    const valid = await vendorSchema.isValid(formData);
+    setisValid(valid);
+    
+    console.log(valid);
   };
   const vendorUpdateHandler = (event) => {
     const payload = {
@@ -34,9 +40,13 @@ export default function VendorDetails() {
       email,
     };
     dispatch(vendorActions.updateVendor(payload));
+    setUpdate(true);
+    // console.log('update',update);
   };
   return (
     <form onSubmit={vendorUpdate}>
+      {isValid ? null  : <Alert open={true} message={'Please enter proper details'}/> }  
+      {/* //Doubt */}
       <div className="vendordetails-container">
         <>
           <div className="label">
@@ -44,8 +54,7 @@ export default function VendorDetails() {
           </div>
 
           <TextField
-            error
-            id="outlined-error"
+            // id="outlined-error"
             value={name}
             onChange={(event) => {
               setName(event.target.value);
@@ -57,7 +66,7 @@ export default function VendorDetails() {
           <div className="label">
             <label>Number</label>
           </div>
-          <input
+          <TextField
             className="input"
             placeholder="Your number"
             type="text"
@@ -69,7 +78,7 @@ export default function VendorDetails() {
           <div className="label">
             <label>Address</label>
           </div>
-          <input
+          <TextareaAutosize
             className="input"
             placeholder="Your address"
             type="text"
@@ -77,11 +86,12 @@ export default function VendorDetails() {
             onChange={(event) => {
               setAddress(event.target.value);
             }}
+            minRows={3}
           />
           <div className="label">
             <label>Mail</label>
           </div>
-          <input
+          <TextField
             className="input"
             placeholder="Your mail"
             type="text"
@@ -94,7 +104,9 @@ export default function VendorDetails() {
 
         <button className="button" onClick={vendorUpdateHandler}>
           Update
+          {update ? <Alert open={true} message={'Your details were successfully updated!'}/> : null}
         </button>
+        
       </div>
     </form>
   );

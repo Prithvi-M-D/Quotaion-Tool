@@ -2,12 +2,30 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { clientActions } from "../store/client";
+import { clientSchema } from "../validations/client";
+import Alert from "./alert";
 
 export default function ClientDetails() {
   const dispatch=useDispatch();
   const [cname, setCname] = useState('');
   const [cphone, setCphone] = useState('');
   const [caddress, setCaddress] = useState('');
+  const [isValid, setisValid] = useState(true); //Validation Mod
+
+  const clientValid = async (event) => {
+    event.preventDefault();
+    let formData = {
+      cname,
+      caddress,
+      cphone,
+    };
+    setisValid(true);
+    const valid = await clientSchema.isValid(formData);
+    setisValid(valid);
+    console.log(isValid);
+    console.log(valid);
+  };
+
   const clientDetails=()=>{
     const payload ={
       cname,
@@ -18,6 +36,8 @@ export default function ClientDetails() {
   }
  
   return (
+    <form onSubmit={clientValid}>
+      {isValid ? null  : <Alert open={true} message={'Please enter proper client details'}/> }  
     <div className="vendordetails-container">
        <div>
             <div className="label">
@@ -60,5 +80,6 @@ export default function ClientDetails() {
           </div>
           <button className="button" onClick={clientDetails}>Save</button>
     </div>
+    </form>
   );
 }

@@ -7,10 +7,7 @@ const Final = () => {
   //   const weddingdetails = useSelector((state)=> state.client.weddingdetails);
   const fooddetails = useSelector((state) => state.client.fooddetails);
   const decordetails = useSelector((state) => state.client.decordetails);
-  const photographydetails = useSelector(
-    (state) => state.client.photographydetails
-  );
-
+  const photographydetails = useSelector((state) => state.client.photographydetails);
   let receptionfinal = null;
   let muhurtafinal = null;
   let mehendifinal = null;
@@ -47,10 +44,7 @@ const Final = () => {
     fooddetails.muhurta
       ? (muhurtafinal = muhurtafinal + fooddetails.countrecep * 150)
       : (muhurtafinal = muhurtafinal + 0);
-    // decordetails.muhurta
-    //   ? (muhurtafinal = decordetails.countrecep * 500)
-    //   : (muhurtafinal = muhurtafinal + 0);
-    //     console.log(muhurtafinal);
+
     // eslint-disable-next-line no-unused-expressions
     decordetails.muhurta
       ? () => {
