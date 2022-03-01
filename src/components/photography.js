@@ -1,7 +1,8 @@
 import React from "react";
-import {useState} from 'react';
+import { useState } from "react";
 import { clientActions } from "../store/client";
 import { useDispatch } from "react-redux";
+import "./photography.css";
 
 export default function Photography() {
   const [reception, setReception] = useState(false);
@@ -18,8 +19,8 @@ export default function Photography() {
 
   const dispatch = useDispatch();
 
-  const photographyDetailHandler=()=>{
-    const payload={
+  const photographyDetailHandler = () => {
+    const payload = {
       reception,
       mehendi,
       muhurta,
@@ -28,60 +29,132 @@ export default function Photography() {
       mehendicandid,
       mehendinormal,
       muhurtacandid,
-      muhurtanormal
+      muhurtanormal,
     };
     dispatch(clientActions.photographyDetail(payload));
   };
 
   return (
     <div className="vendordetails-container">
-      <div>
-        <div className="label">
-          <label>Reception</label>
+      <div className="photo-outer">
+        <div className="options">
+          <div className="photo-label">
+            <label>Reception</label>
+          </div>
+          <input
+            className="photo-input"
+            type="checkbox"
+            name="Reception"
+            value={reception}
+            onChange={(e) => {
+              setReception(!reception);
+            }}
+          />
+          <div className="photo-label">
+            <label>Candid</label>
+          </div>
+          <input
+            type="checkbox"
+            id="candid"
+            value={receptioncandid}
+            onChange={(e) => {
+              setReceptionCandid(!receptioncandid);
+            }}
+          ></input>
+          <div className="photo-label">
+            <label>Photo and Video</label>
+          </div>
+          <input
+            type="checkbox"
+            id="normal"
+            value={receptionnormal}
+            onChange={(e) => {
+              setReceptionNormal(!receptionnormal);
+            }}
+          />
         </div>
-        <input className="input" type="checkbox" name="Reception" value={reception} onChange={(e)=>{setReception(!reception);}}/>
-        <div className="label">
-          <label>Candid</label>
+        {/* ------------------------------------------------------------------------------------------- */}
+
+        <div className="options">
+          <div className="photo-label">
+            <label>Muhurta</label>
+          </div>
+          <input
+            className="photo-input"
+            type="checkbox"
+            name="muhurta"
+            value={muhurta}
+            onChange={(e) => {
+              setMuhurta(!muhurta);
+            }}
+          />
+          <div className="photo-label">
+            <label>Candid</label>
+          </div>
+          <input
+            type="checkbox"
+            id="candid"
+            value={muhurtacandid}
+            onChange={(e) => {
+              setMuhurtaCandid(!muhurtacandid);
+            }}
+          />
+          <div className="photo-label">
+            <label>Photo and Video</label>
+          </div>
+          <input
+            type="checkbox"
+            id="normal"
+            value={muhurtanormal}
+            onChange={(e) => {
+              setMuhurtaNormal(!muhurtanormal);
+            }}
+          />
         </div>
-        <input type="radio" id="candid" value={receptioncandid}  onChange={(e)=>{setReceptionCandid(!receptioncandid);}}></input>
-        <div className="label">
-          <label>Photo and Video</label>
+        {/* -------------------------------------------------------------------------------------------------------- */}
+
+        <div className="options">
+          <div className="photo-label">
+            <label>Mehendi</label>
+          </div>
+          <input
+            className="photo-input"
+            type="checkbox"
+            name="Mehendi"
+            value={mehendi}
+            onChange={(e) => {
+              setMehendi(!mehendi);
+            }}
+          />
+          <div className="photo-label">
+            <label>Candid</label>
+          </div>
+          <input
+            type="checkbox"
+            id="candid"
+            value={mehendicandid}
+            onChange={(e) => {
+              setMehendiCandid(!mehendicandid);
+            }}
+          />
+          <div className="photo-label">
+            <label>Photo and Video</label>
+          </div>
+          <input
+            type="checkbox"
+            id="normal"
+            value={mehendinormal}
+            onChange={(e) => {
+              setMehendiNormal(!mehendinormal);
+            }}
+          />
         </div>
-        <input type="radio" id="normal" value={receptionnormal}  onChange={(e)=>{setReceptionNormal(!receptionnormal);}}/>
+        <div className="options">
+        <button className="button" onClick={photographyDetailHandler}>
+          Save
+        </button>
+        </div>
       </div>
-
-
-      <div>
-        <div className="label">
-          <label>Muhurta</label>
-        </div>
-        <input className="input" type="checkbox" name="muhurta" value={muhurta} onChange={(e)=>{setMuhurta(!muhurta);}}/>
-        <div className="label">
-          <label>Candid</label>
-        </div>
-        <input type="radio" id="candid" value={muhurtacandid}  onChange={(e)=>{setMuhurtaCandid(!muhurtacandid);}}/>
-        <div className="label">
-          <label>Photo and Video</label>
-        </div>
-        <input type="radio" id="normal" value={muhurtanormal}  onChange={(e)=>{setMuhurtaNormal(!muhurtanormal);}}/>
-      </div>
-      <div>
-
-
-        <div className="label">
-          <label>Mehendi</label>
-        </div>
-        <input className="input" type="checkbox" name="Mehendi" value={mehendi} onChange={(e)=>{setMehendi(!mehendi);}}/>
-        <div className="label">
-          <label>Candid</label>
-        </div>
-        <input type="radio" id="candid" value={mehendicandid}  onChange={(e)=>{setMehendiCandid(!mehendicandid);}}/>
-        <div className="label">
-          <label>Photo and Video</label>
-        </div>
-        <input type="radio" id="normal" value={mehendinormal}  onChange={(e)=>{setMehendiNormal(!mehendinormal);}}/>
-      </div>
-      <button className="button" onClick={photographyDetailHandler}>Save</button>
     </div>
   );
 }

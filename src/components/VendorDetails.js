@@ -30,7 +30,7 @@ export default function VendorDetails() {
     setisValid(true);
     const valid = await vendorSchema.isValid(formData);
     setisValid(valid);
-    
+
     console.log(valid);
   };
   const vendorUpdateHandler = (event) => {
@@ -46,71 +46,64 @@ export default function VendorDetails() {
   };
   return (
     <form onSubmit={vendorUpdate}>
-      {isValid ? null  : <Alert open={true} message={'Please enter proper details'}/> }  
-      {/* //Doubt */}
+      {isValid ? null : (
+        <Alert open={true} message={"Please enter proper details"} />
+      )}
+
       <div className="vendordetails-container">
         <>
-          {/* <div className="label">
-            <label>Name</label>
-          </div> */}
-          <Stack spacing={2} sx={{ padding : 5 }} direction="column">
-          <TextField
-            // id="outlined-error"
-            value={name}
-            onChange={(event) => {
-              setName(event.target.value);
-            }}
-            placeholder="Your name"
-            className="input"
-          />
-          {/* <div className="label">
-            <label>Number</label>
-          </div> */}
-          <TextField
-            className="input"
-            placeholder="Your number"
-            type="text"
-            value={number}
-            onChange={(event) => {
-              setNumber(event.target.value);
-            }}
-          />
-          {/* <div className="label">
-            <label>Address</label>
-          </div> */}
-          <TextareaAutosize
-            className="input"
-            placeholder="Your address"
-            type="text"
-            value={address}
-            onChange={(event) => {
-              setAddress(event.target.value);
-            }}
-            minRows={3}
-          />
-          {/* <div className="label">
-            <label>Mail</label>
-          </div> */}
-          <TextField
-            className="input"
-            placeholder="Your mail"
-            type="text"
-            value={email}
-            onChange={(event) => {
-              setEmail(event.target.value);
-            }}
-          />
-          </Stack>
-          
+          <Stack spacing={2} sx={{ padding: 5 }} direction="column">
+            <TextField
+              value={name}
+              onChange={(event) => {
+                setName(event.target.value);
+              }}
+              placeholder="Your name"
+              className="input"
+            />
 
-          
+            <TextField
+              className="input"
+              placeholder="Your number"
+              type="text"
+              value={number}
+              onChange={(event) => {
+                setNumber(event.target.value);
+              }}
+            />
+
+            <TextareaAutosize
+              className="input"
+              placeholder="Your address"
+              type="text"
+              value={address}
+              onChange={(event) => {
+                setAddress(event.target.value);
+              }}
+              minRows={3}
+            />
+
+            <TextField
+              className="input"
+              placeholder="Your mail"
+              type="text"
+              value={email}
+              onChange={(event) => {
+                setEmail(event.target.value);
+              }}
+            />
+          </Stack>
         </>
 
         <button className="button" onClick={vendorUpdateHandler}>
           Update
-          {update ? <Alert open={true} message={'Your details were successfully updated!'}/> : null}
+          {update ? (
+            <Alert
+              open={true}
+              message={"Your details were successfully updated!"}
+            />
+          ) : null}
         </button>
-        
       </div>
     </form>
   );

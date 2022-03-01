@@ -1,0 +1,23 @@
+.photo-outer{
+    display: block;
+    margin: 10px;
+    background-color: rgb(241, 245, 248);
+    border-radius: 10px;
+}
+.options{
+    display: flex;
+    flex-direction: row;
+    background-color: aliceblue;
+    align-items: center;
+    justify-content: center;
+    margin:10px;
+}
+
+.photo-label{
+    display: flex;
+    margin: 10px;
+}
+
+.input-photo{
+    margin: 20px;
+}

@@ -1,6 +1,10 @@
 import { useSelector } from "react-redux";
-// import { Document, Page } from "react-pdf/dist/esm/entry.webpack";
+// import { Document, Page, Text, StyleSheet } from "@react-pdf/renderer";
 import { Button } from "@mui/material";
+import { useState } from "react";
+import PDFfile from "./pdf";
+
+
 
 const Final = () => {
   // const clientdetails = useSelector((state)=> state.client.clientdetails);
@@ -14,8 +18,11 @@ const Final = () => {
   let muhurtafinal = null;
   let mehendifinal = null;
 
+  const [pdf, setPdf] = useState(false);
+
   const downloadpdf = () => {
     //RECEPTION
+    setPdf(true);
     fooddetails.reception
       ? (receptionfinal = receptionfinal + fooddetails.countrecep * 200)
       : (receptionfinal = receptionfinal + 0);
@@ -76,7 +83,6 @@ const Final = () => {
       : (muhurtafinal = muhurtafinal + 0);
     console.log(muhurtafinal);
     //--------------------------------------------------------------------------------------------
-
     //MEHENDI
     fooddetails.mehendi
       ? (mehendifinal = mehendifinal + fooddetails.countrecep * 120)
@@ -106,8 +112,12 @@ const Final = () => {
         }
       : (mehendifinal = mehendifinal + 0);
     console.log(mehendifinal);
+    //-----------------------------------------------------------------------------------------------
   };
-  return <Button onClick={downloadpdf}>Download</Button>;
+  return <div>
+    <Button onClick={downloadpdf}>Download</Button>
+    {pdf? <PDFfile/>: null}
+    </div>;
 };
 
 export default Final;

@@ -40,8 +40,8 @@ export default function ClientDetails() {
   return (
     <form onSubmit={clientValid}>
       {isValid ? null : <Alert open={true} message={'Please enter proper client details'} />}
-      <div className="container" style={{ width: '500px' }} >
-        <div style={{ padding: '20px' }}>
+      <div style={{ width: '500px' }} >
+        <div>
         <Stack spacing={2} sx={{ padding: 5 }} direction="column">
           <div >
             {/* <div className="label">

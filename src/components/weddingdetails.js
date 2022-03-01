@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { clientActions } from "../store/client";
 import Alert from "./alert";
 import { weddingSchema } from "../validations/client";
+import TextField from "@mui/material/TextField";
+import "./vendordetails.css";
 
 export default function Weddingdetails() {
   const [venue, setVenue] = useState("");
@@ -39,11 +41,9 @@ export default function Weddingdetails() {
         <Alert open={true} message={"Please enter proper wedding details"} />
       )}
       <div className="vendordetails-container">
-        <div>
-          <div className="label">
-            <label>Venue</label>
-          </div>
-          <input
+        <div style={{margin:'10px'}}>
+          
+          <TextField
             className="input"
             type="text"
             name="Venue"
@@ -54,11 +54,9 @@ export default function Weddingdetails() {
             }}
           />
         </div>
-        <div>
-          <div className="label">
-            <label>Reception</label>
-          </div>
-          <input
+        <div style={{margin:'10px'}}>
+         
+          <TextField
             className="input"
             type="date"
             name="Reception"
@@ -68,11 +66,9 @@ export default function Weddingdetails() {
             }}
           />
         </div>
-        <div>
-          <div className="label">
-            <label>Muhurta</label>
-          </div>
-          <input
+        <div style={{margin:'10px'}}>
+         
+          <TextField
             className="input"
             type="date"
             name="muhurta"
@@ -82,11 +78,9 @@ export default function Weddingdetails() {
             }}
           />
         </div>
-        <div>
-          <div className="label">
-            <label>Mehendi</label>
-          </div>
-          <input
+        <div style={{margin:'10px'}}>
+         
+          <TextField
             className="input"
             type="date"
             name="Mehendi"
@@ -96,7 +90,7 @@ export default function Weddingdetails() {
             }}
           />
         </div>
-        <button className="button" onClick={weddingDetailHandler}>
+        <button className="button" onClick={weddingDetailHandler} style={{margin:'10px'}}>
           Save
         </button>
       </div>
