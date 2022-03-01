@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { clientActions } from "../store/client";
 import { useDispatch } from "react-redux";
-
+import './photography.css';
 export default function Decor() {
   const [reception, setReception] = useState(false);
   const [mehendi, setMehendi] = useState(false);
@@ -19,12 +19,12 @@ export default function Decor() {
   };
   return (
     <div className="vendordetails-container">
-      <div>
+      <div className="options">
         <div className="label">
           <label>Reception</label>
         </div>
         <input
-          className="input"
+          className="input-photo"
           type="checkbox"
           name="Reception"
           value={reception}
@@ -33,12 +33,12 @@ export default function Decor() {
           }}
         />
       </div>
-      <div>
+      <div className="options">
         <div className="label">
           <label>Muhurta</label>
         </div>
         <input
-          className="input"
+          className="input-photo"
           type="checkbox"
           name="muhurta"
           value={muhurta}
@@ -47,12 +47,12 @@ export default function Decor() {
           }}
         />
       </div>
-      <div>
+      <div className="options">
         <div className="label">
           <label>Mehendi</label>
         </div>
         <input
-          className="input"
+          className="input-photo"
           type="checkbox"
           name="Mehendi"
           value={mehendi}
@@ -61,7 +61,7 @@ export default function Decor() {
           }}
         />
       </div>
-      <button className="button" onClick={decorDetailHandler}>
+      <button className="button"  style={{ width : '320px', marginLeft : 'auto', marginRight: 'auto'  }} onClick={decorDetailHandler}>
         Save
       </button>
     </div>

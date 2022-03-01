@@ -90,7 +90,7 @@ export default function Weddingdetails() {
             }}
           />
         </div>
-        <button className="button" onClick={weddingDetailHandler} style={{margin:'10px'}}>
+        <button className="button" style={{ width : '320px', marginLeft : 'auto', marginRight: 'auto'  }} onClick={weddingDetailHandler} >
           Save
         </button>
       </div>

@@ -14,7 +14,7 @@ export default function LogMeIn() {
             ever wanted to have an organized quotation creator, this tool is
             gonna make your life better
           </p>
-          <Link className="login-google-signin" to='/vendordashboard'>sign in with google</Link>
+          <Link className="login-google-signin" to='/vendordashboard'>Get started</Link>
         </div>
       </div>
       

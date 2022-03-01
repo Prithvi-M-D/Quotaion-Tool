@@ -131,7 +131,7 @@ export default function Food() {
       
 
 
-      <button className="button" onClick={foodDetailHandler}>
+      <button className="button" style={{ width : '320px', marginLeft : 'auto', marginRight: 'auto'  }} onClick={foodDetailHandler}>
         Save
       </button>
     </div>

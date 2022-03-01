@@ -33,7 +33,7 @@ export default function Client(props) {
         <div>
           <Header />
         </div>
-        <div style={{ maxwidth: "800px", paddingTop: '10px'}}>
+        <div style={{ maxwidth: "800px", paddingTop: '5px'}}>
           <HorizontalNonLinearStepper currentstep={setActive} />
         </div>
         {/* <p>{console.log(step)}</p> */}

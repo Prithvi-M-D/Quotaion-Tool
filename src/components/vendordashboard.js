@@ -16,7 +16,8 @@ export default function VendorDashboard() {
             borderWidth: "1px",
             borderStyle: "solid",
             borderColor: "rgb(90, 160, 240)",
-            marginBottom: "20px",
+            margin: "20px",
+            
           }}
         >
           <VendorDetails />

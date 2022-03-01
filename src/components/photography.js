@@ -149,11 +149,11 @@ export default function Photography() {
             }}
           />
         </div>
-        <div className="options">
-        <button className="button" onClick={photographyDetailHandler}>
+        
+        <button className="button" style={{ width : '320px', marginLeft : 'auto', marginRight: 'auto'    }} onClick={photographyDetailHandler}>
           Save
         </button>
-        </div>
+        
       </div>
     </div>
   );
