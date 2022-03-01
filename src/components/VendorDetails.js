@@ -4,6 +4,7 @@ import "./vendordetails.css";
 import { useState } from "react";
 import { vendorActions } from "../store/vendor";
 import TextField from "@mui/material/TextField";
+import Stack from "@mui/material/Stack";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 import Alert from "./alert";
 
@@ -49,10 +50,10 @@ export default function VendorDetails() {
       {/* //Doubt */}
       <div className="vendordetails-container">
         <>
-          <div className="label">
+          {/* <div className="label">
             <label>Name</label>
-          </div>
-
+          </div> */}
+          <Stack spacing={2} sx={{ padding : 5 }} direction="column">
           <TextField
             // id="outlined-error"
             value={name}
@@ -62,10 +63,9 @@ export default function VendorDetails() {
             placeholder="Your name"
             className="input"
           />
-
-          <div className="label">
+          {/* <div className="label">
             <label>Number</label>
-          </div>
+          </div> */}
           <TextField
             className="input"
             placeholder="Your number"
@@ -75,9 +75,9 @@ export default function VendorDetails() {
               setNumber(event.target.value);
             }}
           />
-          <div className="label">
+          {/* <div className="label">
             <label>Address</label>
-          </div>
+          </div> */}
           <TextareaAutosize
             className="input"
             placeholder="Your address"
@@ -88,9 +88,9 @@ export default function VendorDetails() {
             }}
             minRows={3}
           />
-          <div className="label">
+          {/* <div className="label">
             <label>Mail</label>
-          </div>
+          </div> */}
           <TextField
             className="input"
             placeholder="Your mail"
@@ -100,6 +100,10 @@ export default function VendorDetails() {
               setEmail(event.target.value);
             }}
           />
+          </Stack>
+          
+
+          
         </>
 
         <button className="button" onClick={vendorUpdateHandler}>

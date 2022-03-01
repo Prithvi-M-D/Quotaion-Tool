@@ -1,11 +1,13 @@
 import React from "react";
 import Header from "./Header";
 import VendorDetails from "./VendorDetails";
+import "./vendordashboard.css";
+
 
 export default function VendorDashboard() {
   return (
     <div className="page">
-      <div className="dashboard-container">
+      <div className="container">
         <div>
           <Header />
         </div>
