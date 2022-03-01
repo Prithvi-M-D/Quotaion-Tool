@@ -84,7 +84,6 @@ const clientSlice = createSlice({
         receptionnormal: action.payload.receptionnormal,
         receptioncandid: action.payload.receptioncandid,
         mehendicandid: action.payload.mehendicandid,
-
         mehendinormal: action.payload.mehendinormal,
         muhurtacandid: action.payload.muhurtacandid,
         muhurtanormal: action.payload.muhurtanormal,
